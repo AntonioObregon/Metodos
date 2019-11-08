@@ -6,45 +6,15 @@
 <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 
 <script type="text/javascript" charset="utf-8">
-function onBodyLoad() {
-document.addEventListener("deviceready",onDeviceReady,
-false);
-}
-    
-     function onDeviceReady() {
-         
-    function boton1() {
-        
-        navigator.notification.alert('Esta es una alerta desde un botón');
-        
-}
-         
-function boton2() {
-   
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
     navigator.notification.confirm(
     'You are the winner!', // message
      onConfirm,            // callback to invoke with index of button pressed
     'Game Over',           // title
     ['Restart','Exit']     // buttonLabels
-); 
-    
-    }
-
-        function boton3() {
-            
-            navigator.notification.prompt(
-    'Please enter your name',  // message
-    onPrompt,                  // callback to invoke
-    'Registration',            // title
-    ['Ok','Exit'],             // buttonLabels
-    'Jane Doe'                 // defaultText
-); }
-
-        function boton4() {
-            
-            navigator.notification.beep(2);}
-    }
-
+);
+}
 </script>
 </head>
 <body onload="onBodyLoad()">
