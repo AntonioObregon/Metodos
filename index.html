@@ -10,36 +10,40 @@ function onBodyLoad() {
 document.addEventListener("deviceready",onDeviceReady,
 false);
 }
+    
+     function onDeviceReady() {
+         
     function boton1() {
-        function onDeviceReady() {
+        
         navigator.notification.alert('Esta es una alerta desde un botón');
-        }
+        
 }
+         
 function boton2() {
-    function onDeviceReady() {
+   
     navigator.notification.confirm(
     'You are the winner!', // message
      onConfirm,            // callback to invoke with index of button pressed
     'Game Over',           // title
     ['Restart','Exit']     // buttonLabels
 ); 
-    }
+    
     }
 
         function boton3() {
-            function onDeviceReady() {
+            
             navigator.notification.prompt(
     'Please enter your name',  // message
     onPrompt,                  // callback to invoke
     'Registration',            // title
     ['Ok','Exit'],             // buttonLabels
     'Jane Doe'                 // defaultText
-); }}
+); }
 
         function boton4() {
-            function onDeviceReady() {
-            navigator.notification.beep(2);}}
-
+            
+            navigator.notification.beep(2);}
+    }
 
 </script>
 </head>
