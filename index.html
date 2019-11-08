@@ -6,25 +6,53 @@
 <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 
 <script type="text/javascript" charset="utf-8">
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
+
+function onBodyLoad() {
+document.addEventListener("deviceready",onDeviceReady,false);
+}
+
+    function boton1() {
+     
+        navigator.notification.alert('Esta es una alerta desde un botón');
+        
+}
+function boton2() {
+    
     navigator.notification.confirm(
     'You are the winner!', // message
      onConfirm,            // callback to invoke with index of button pressed
     'Game Over',           // title
     ['Restart','Exit']     // buttonLabels
 );
-}
+ }
+
+        function boton3() {
+           
+            navigator.notification.prompt(
+    'Please enter your name',  // message
+    onPrompt,                  // callback to invoke
+    'Registration',            // title
+    ['Ok','Exit'],             // buttonLabels
+    'Jane Doe'                 // defaultText
+);}
+
+        function boton4() {
+          
+            navigator.notification.beep(2);}
+
+
 </script>
 </head>
 <body onload="onBodyLoad()">
 <h1>Hola Mundo 03</h1>
 <p>Esta es la tercera aplicacion de PhoneGap.</p>
 <p>Antonio de Jesús Obregón Prieto</p>
-<button onclick="boton1">Alert</button>
-<button onclick="boton2">confirm</button>
-<button onclick="boton3">Prompt</button>
-<button onclick="boton4">Beeps</button>
+
+
+<input id="boton1" name="boton1" type="button" value="Alert" onclick="boton1();" />
+<input id="boton2" name="boton2" type="button" value="confirm" onclick="boton2();" />
+<input id="boton3" name="boton3" type="button" value="prompt" onclick="boton3();" />
+<input id="boton3" name="boton4" type="button" value="beep" onclick="boton4();" />
 
 </body>
 </html>
