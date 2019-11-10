@@ -6,53 +6,63 @@
 <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 
 <script type="text/javascript" charset="utf-8">
-
-function onBodyLoad() {
-document.addEventListener("deviceready",onDeviceReady,false);
-}
-
     function boton1() {
      
-        navigator.notification.alert('Esta es una alerta desde un botón');
+        function alertDismissed() {
+    // do something
+}
+navigator.notification.alert(
+    'Este teléfono se autodestruirá si presionas el botón si, presiona no para salvar tu teléfono',  // Subtitulo de la ventanita o cuerpo
+    alertDismissed,         // Llamada al metodo al pulsar el botón
+    'Decide Pronto',            // Titulo de la ventanita
+    'Si'                  // Etiqueta del boton
+);
         
 }
-function boton2() {
-    
-    navigator.notification.confirm(
-    'You are the winner!', // message
-     onConfirm,            // callback to invoke with index of button pressed
-    'Game Over',           // title
-    ['Restart','Exit']     // buttonLabels
+ 
+    function boton2() {
+     
+        navigator.notification.confirm(
+    'Decíde', // Subtitulo de la ventanita o texto
+     onConfirm,            // llamada al metodo que menciona que botón se oprimió
+    'Confirma Si o No',           // Título de la ventanita
+    ['Si','No']     // titulo de cada botón el elemento más al final en el arreglo será el más a la izquierda 
 );
- }
-
-        function boton3() {
-           
-            navigator.notification.prompt(
-    'Please enter your name',  // message
-    onPrompt,                  // callback to invoke
-    'Registration',            // title
-    ['Ok','Exit'],             // buttonLabels
-    'Jane Doe'                 // defaultText
-);}
-
+    function onConfirm(buttonIndex) { //este metodo es la función que el confirm llamará
+    alert('Presionaste el botón número' + buttonIndex);
+}      
+}
+    
+function boton3() {
+function onPrompt(results) { //results se vuelve un objeto y podemos acceder a sus atributos para ver sus valores
+    alert("Escogiste el botón " + results.buttonIndex + " y escribíste " + results.input1);
+}
+navigator.notification.prompt(
+    'Por favor escribe tu nombre',  // Subtitulo de la ventanita
+    onPrompt,                  // llamada al metodo funcional
+    'Registro',            // Titulo de la ventanita
+    ['Aceptar','Salir'],             // Nombres de los botones
+    ''                 // texto en el textinput por default
+);
+    
+}
+    
+    
         function boton4() {
           
-            navigator.notification.beep(2);}
-
-
+            navigator.notification.beep(4);}
 </script>
 </head>
-<body onload="onBodyLoad()">
-<h1>Hola Mundo 03</h1>
-<p>Esta es la tercera aplicacion de PhoneGap.</p>
+<body>
+    <center>
+<h1>Hola Mundo 02</h1>
+<p>Esta es otra aplicacion de PhoneGap.</p>
 <p>Antonio de Jesús Obregón Prieto</p>
-
-
-<input id="boton1" name="boton1" type="button" value="Alert" onclick="boton1();" />
-<input id="boton2" name="boton2" type="button" value="confirm" onclick="boton2();" />
-<input id="boton3" name="boton3" type="button" value="prompt" onclick="boton3();" />
-<input id="boton3" name="boton4" type="button" value="beep" onclick="boton4();" />
-
+    <input id="boton1" name="boton1" type="button" value="Alert" onclick="boton1();"  style="height:200px;width:100%"/>
+    <input id="boton2" name="boton2" type="button" value="confirm" onclick="boton2();" style="height:200px;width:100%"/>
+    <input id="boton3" name="boton3" type="button" value="prompt" onclick="boton3();" style="height:200px;width:100%"/>
+    <input id="boton3" name="boton4" type="button" value="beep" onclick="boton4();" style="height:200px;width:100%"/>
+</center>
+    
 </body>
 </html>
